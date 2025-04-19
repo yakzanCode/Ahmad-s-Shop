@@ -9,7 +9,9 @@ function ProductsList() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/products');
+        // const response = await fetch('http://localhost:3000/api/products');
+        const response = await fetch('https://shop-o510.onrender.com/api/products');
+
         const data = await response.json();
         setProducts(data);
         setLoading(false);

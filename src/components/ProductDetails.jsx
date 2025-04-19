@@ -50,7 +50,8 @@ function ProductDetails() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/products/${id}`);
+        // const response = await fetch(`http://localhost:3000/api/products/${id}`);
+        const response = await fetch(`https://shop-o510.onrender.com/api/products/${id}`);
         const data = await response.json();
         console.log('Fetched product:', data._id);
 
@@ -67,7 +68,9 @@ function ProductDetails() {
 
           // Fetch similar products by name, excluding this product's ID
           const similarRes = await fetch(
-            `http://localhost:3000/api/products/similar?name=${encodeURIComponent(data.name)}&id=${data._id}`
+            // `http://localhost:3000/api/products/similar?name=${encodeURIComponent(data.name)}&id=${data._id}`
+            `https://shop-o510.onrender.com/products/similar?name=${encodeURIComponent(data.name)}&id=${data._id}`
+
           );
           const similarData = await similarRes.json();
           setSimilarProducts(similarData);
